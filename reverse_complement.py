@@ -5,9 +5,9 @@ Given: A DNA string s
 
 Return: The reverse complement sc
  of s'''
-complement = {"A":"T","C":"G","G":"C","T":"A"}
 
 def reverse_complement(seq):
+    complement = {"A":"T","C":"G","G":"C","T":"A"}
     complement_seq = ""
     for nucleotide in seq[::-1]:
         complement_seq += complement[nucleotide]
