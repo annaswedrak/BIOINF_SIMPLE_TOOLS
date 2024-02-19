@@ -30,17 +30,8 @@ def frequent_words(text,k):
          if counts[i] == max(counts): #checking if element from a list is equal to maximum frequency of a pettern
              frequent_patterns.add(text[i:i+k]) #adding the most frequent patterns to a set
 
-     return patterns, frequent_patterns
+     return frequent_patterns
 
-
-dna = 'ACTGACTCCCACCCC'
-k = 3
-
-
-# "ACTGAT"
-
-
-print(frequent_words(dna,k))
 
 
 
@@ -69,4 +60,38 @@ def FrequencyTable(text,k):
         else:
             freqMap[pattern] += 1
     return freqMap
-print(FrequencyTable(dna,k))
+
+
+
+
+''' a function MaxMap that takes a map of strings to integers as an input and returns the maximum value of this map as output.'''
+
+def MaxMap(map):
+    return max(map.values())
+
+
+'''BetterFrequentWords(Text, k)
+    FrequentPatterns ← an array of strings of length 0
+    freqMap ← FrequencyTable(Text, k)
+    max ← MaxMap(freqMap)
+    for all strings Pattern in freqMap
+        if freqMap[pattern] = max
+            append Pattern to frequentPatterns
+    return frequentPatterns '''
+
+
+def BetterFrequentWords(text,k):
+    FrequentPatterns = []
+    freqMap = FrequencyTable(text,k)
+    max = MaxMap(freqMap)
+    for pattern in freqMap:
+        if freqMap[pattern] == max:
+            FrequentPatterns.append(pattern)
+    return FrequentPatterns
+
+#example from course:
+gene = 'GGGCTTCCGTGGCGAGTCGACCTGGCTGTTCTGTAATTCTGTCTTTCTGTCTGGGCTTCCGTGGGCTTCCGTTTCTGTCTGGGCTTCCGTTTCTGTCTTTCTGTAATTCTGTAATTCTGTAATTCTGTCTTTCTGTCTGGCGAGTCGGCGAGTCTTCTGTAATTCTGTCTGACCTGGCTGGGGCTTCCGTTTCTGTAAGGCGAGTCGACCTGGCTGGACCTGGCTGGGGCTTCCGTGACCTGGCTGTTCTGTAAGGCGAGTCTTCTGTCTGGCGAGTCGACCTGGCTGGGCGAGTCTTCTGTCTGACCTGGCTGTTCTGTAAGGCGAGTCGGGCTTCCGTTTCTGTCTTTCTGTAAGGCGAGTCGGCGAGTCGACCTGGCTGGACCTGGCTGGGGCTTCCGTGACCTGGCTGGGCGAGTCGGCGAGTCTTCTGTCTGGGCTTCCGTGGGCTTCCGTTTCTGTCTTTCTGTAAGACCTGGCTGTTCTGTCTTTCTGTAAGACCTGGCTGTTCTGTCTTTCTGTCTGACCTGGCTGTTCTGTCTGGCGAGTCGGCGAGTCTTCTGTCTTTCTGTCTGGGCTTCCGTTTCTGTAAGGCGAGTCGACCTGGCTGTTCTGTAAGACCTGGCTGTTCTGTAATTCTGTCTGGCGAGTCTTCTGTCTTTCTGTAATTCTGTAAGGGCTTCCGTGACCTGGCTGTTCTGTCTTTCTGTCTGGCGAGTCGACCTGGCTGGACCTGGCTGTTCTGTCTGACCTGGCTGTTCTGTCTGGGCTTCCGTTTCTGTAAGGCGAGTCTTCTGTCTTTCTGTCTGACCTGGCTGGGCGAGTCTTCTGTAAGACCTGGCTGGGGCTTCCGTGGGCTTCCGTGGCGAGTCGGGCTTCCGTGGCGAGTCGGCGAGTCGGGCTTCCGT'
+
+kmer= 13
+fr = BetterFrequentWords(gene,kmer)
+print(" ".join(fr))
