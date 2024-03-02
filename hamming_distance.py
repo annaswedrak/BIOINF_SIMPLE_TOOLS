@@ -8,8 +8,3 @@ def hamming_distance(s,t):
         if s[i] != t[i]:
             count += 1
     return count
-
-a = 'GAGCCTACTAACGGGAT'
-b = 'CATCGTAATGACGGCCT'
-
-print(hamming_distance(a,b))

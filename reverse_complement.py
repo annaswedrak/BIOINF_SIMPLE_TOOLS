@@ -12,7 +12,3 @@ def reverse_complement(seq):
     for nucleotide in seq[::-1]:
         complement_seq += complement[nucleotide]
     return complement_seq
-
-s = "AAAACCCGGT"
-
-print(reverse_complement(s))
